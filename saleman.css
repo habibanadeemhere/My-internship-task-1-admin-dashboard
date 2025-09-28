@@ -1,140 +1,233 @@
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      background-color: #121212;
-      color: #e0e0e0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      animation: fadeIn 1.2s ease forwards;
-      opacity: 0;
-    }
+body {
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 40px 5vw;
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    h2,
-    h3 {
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-
-    table {
-      width: 90%;
-      max-width: 700px;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-      border-radius: 10px;
-      overflow: hidden;
-      background-color: #1f1f1f;
-    }
-
-    th,
-    td {
-      border: 1px solid #00fff7;
-      padding: 12px;
-      text-align: center;
-      color: #b0f7f7;
-    }
-
-    th {
-      background-color: #00b3a4;
-      color: #121212;
-      font-weight: 700;
-    }
-
-    input[type='text'],
-    input[type='email'] {
-      padding: 10px 15px;
-      margin: 0 10px 20px 10px;
-      border-radius: 8px;
-      border: 2px solid #00b3a4;
-      width: 220px;
-      font-size: 16px;
-      background-color: #222;
-      color: #e0e0e0;
-      outline: none;
-      transition: box-shadow 0.3s ease;
-    }
-
-    input[type='text']:focus,
-    input[type='email']:focus {
-      box-shadow: 0 0 12px #00fff7;
-      border-color: #00fff7;
-    }
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
 
 
-    button {
-      background-color: #00b3a4;
-      color: #121212;
-      border: none;
-      padding: 10px 20px;
-      margin: 0 5px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 16px;
-      transition: transform 0.2s ease, background-color 0.3s ease;
-      box-shadow: 0 0 8px #00b3a4;
-    }
-
-    button:hover {
-      background-color: #00fff7;
-      transform: scale(1.1);
-      box-shadow: 0 0 15px #00fff7;
-    }
+h2,
+h3 {
+  text-align: center;
+  color: #00fff7;
+  text-shadow: 0 0 8px #00fff7;
+  margin-bottom: 15px;
+  font-size: clamp(1.8rem, 2.5vw, 2.8rem);
+}
 
 
-    #robot-container {
-      margin: 20px auto 30px;
-      width: 180px;
-      animation: float 4s ease-in-out infinite;
-      user-select: none;
-    }
+#robot-container {
+  width: clamp(180px, 25vw, 250px);
+  margin: 25px auto;
+  animation: float 4s ease-in-out infinite;
+}
+
+#robot-container img {
+  width: 100%;
+  border-radius: 20px;
+  filter: drop-shadow(0 0 15px #00fff7);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
 
 
-    @keyframes float {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
+.table-container {
+  width: 100%;
+  max-width: 1200px;
+  overflow-x: auto;
+  margin-top: 30px;
+  border-radius: 10px;
+}
 
-      50% {
-        transform: translateY(-20px);
-      }
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
+}
+
+th,
+td {
+  border: 1px solid #00fff7;
+  padding: 16px;
+  text-align: center;
+  color: #b0f7f7;
+}
+
+th {
+  background-color: #00b3a4;
+  color: #121212;
+  font-weight: bold;
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 15px;
+  margin-top: 35px;
+  width: 100%;
+  max-width: 800px;
+}
+
+input[type="text"],
+input[type="email"],
+button {
+  border-radius: 10px;
+  border: 2px solid #00b3a4;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  padding: 15px;
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
+  flex: 1 1 45%;
+  min-width: 250px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #00fff7;
+  box-shadow: 0 0 10px #00fff7;
+}
+
+button {
+  background-color: #00b3a4;
+  color: #121212;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 12px #00b3a4;
+  flex: 1 1 100%;
+}
+
+button:hover {
+  background-color: #00fff7;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00fff7;
+}
 
 
-    #robot-container img {
-      width: 100%;
-      border-radius: 20px;
-      filter: drop-shadow(0 0 8px #00fff7);
-      animation: pulse 3s ease-in-out infinite;
-    }
+@media (max-width: 992px) {
+  body {
+    padding: 30px 5vw;
+  }
 
-    @keyframes pulse {
-      0%,
-      100% {
-        transform: scale(1);
-      }
+  h2, h3 {
+    font-size: 2rem;
+  }
 
-      50% {
-        transform: scale(1.05);
-      }
-    }
+  .form-container {
+    gap: 12px;
+  }
+
+  table {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  h2, h3 {
+    font-size: 1.6rem;
+  }
+
+  #robot-container {
+    width: 70%;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+  }
+
+  td {
+    border: none;
+    padding: 12px 10px 12px 50%;
+    position: relative;
+    text-align: left;
+    border-bottom: 1px solid #00fff7;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    top: 12px;
+    font-weight: bold;
+    color: #00fff7;
+  }
 
 
-    @media (max-width: 600px) {
-      table,
-      input[type='text'],
-      input[type='email'] {
-        width: 95%;
-      }
-    }
+  .form-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  button {
+    width: 100%;
+    min-width: unset;
+    font-size: 1.2rem;
+  }
+}
